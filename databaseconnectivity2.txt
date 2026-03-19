@@ -1,0 +1,63 @@
+#program of to delete record from python to mysql
+------------------------------------------------------------
+
+import MySQLdb
+
+db=MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+name="manish"
+email="manish@gmail.com"
+
+sql="delete from emp2 where name = %s and email = %s"
+info=[name,email]
+
+cursor.execute(sql,info)
+db.commit()
+
+db.close()
+
+------------------------------------------------------------
+#program of to show all records from mysql to python
+-------------------------------------------------------------
+import MySQLdb
+
+db=MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+sql="select * from emp2"
+
+cursor.execute(sql)
+data=cursor.fetchall()
+
+for cols in data:
+    print(cols[1],"         ",cols[2])
+
+db.close()
+----------------------------------------------------------------
+#login
+------------------------------------------------------------------
+import MySQLdb
+
+db=MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+name=input("enter name=")
+email=input("enter email=")
+
+sql="select name,email from emp2 where name=%s and email=%s"
+info=[name,email]
+
+cursor.execute(sql,info)
+data=cursor.fetchall()
+nm=""
+em=""
+
+for cols in data:
+    nm=cols[0]
+    em=cols[1]
+
+if name==nm and email==em:
+    print("login successfull")
+else:
+    print("login failed")

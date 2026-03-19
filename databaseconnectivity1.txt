@@ -1,0 +1,62 @@
+data base connectivity
+----------------------------------------------------------------------------
+open cmd
+
+cd ../../python39/scripts
+
+pip install mysql
+
+pip install mysql-connector
+
+pip install mysql-connector-python
+
+-------------------------------------------------------------------------------
+#program of to create table from python to mysql
+--------------------------------------------------------------------------------
+import MySQLdb
+
+db=MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+sql="create table emp2(id int primary key auto_increment,name varchar(50),email varchar(50))"
+
+cursor.execute(sql)
+
+db.close()
+-------------------------------------------------------------------------------------
+#program of to insert record from python to mysql
+-------------------------------------------------------------------------------------
+import MySQLdb
+
+db=MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+name=input("enter name=")
+email=input("enter email=")
+
+sql="insert into emp2(name,email) values(%s,%s)"
+info=[name,email]
+
+cursor.execute(sql,info)
+db.commit()     #save changes in database
+
+db.close()
+-----------------------------------------------------------------------------------------------------------
+#program of to update record from python to mysql
+
+import MySQLdb
+
+db = MySQLdb.connect("localhost","root","","jai1")
+cursor=db.cursor()
+
+email= "jairaj@gmail.com"
+name= "Jairaj"
+
+sql="update emp2 set email = %s where name = %s"
+info=[email,name]
+
+cursor.execute(sql,info)
+db.commit()
+
+db.close()
+------------------------------------------------------------------------------------------------------------
