@@ -1,0 +1,35 @@
+import datetime
+
+date=datetime.datetime.now()
+print(date)
+print(date.year)
+print(date.month)
+print(date.day)
+print(date.hour)
+print(date.minute)
+print(date.second)
+
+print(date.strftime("%a"))  #day of week in 3 letter format
+print(date.strftime("%A"))  #day of week in full letter format
+print(date.strftime("%b"))  #month in 3 letter format
+print(date.strftime("%B"))  #month in full letter format
+print(date.strftime("%c"))  #date time format
+
+print(date.strftime("%d"))  #day of month
+print(date.strftime("%m"))  #month in 2 digit format
+print(date.strftime("%y"))  #year in 2 digit format
+print(date.strftime("%Y"))  #year in 4 digit format
+print(date.strftime("%H"))  #hour
+print(date.strftime("%M"))  #minute
+print(date.strftime("%S"))  #second
+print(date.strftime("%p"))  #am/pm
+-------------------------------------------------------------------
+wednesday 09-apr-2025 1:57 pm
+
+import datetime
+
+date=datetime.datetime.now()
+
+print(date.strftime("%A %d-%b-%Y %H:%m %p"))
+
+-----------------------------------------------------------------
